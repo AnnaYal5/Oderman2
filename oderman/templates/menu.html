@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -25,5 +25,14 @@
             {% endfor %}
         </tbody>
     </table>
+    <h1>Замовлення клієнтів</h1>
+    <ul>
+    {% for customer in customers %}
+        <li>
+            {% if customer.order|int > 4 %} discount {% else %} none {% endif %}
+            <em>{{ customer.name }}:</em> {{ customer.order }}/{{ discount }}
+        </li>
+    {% endfor %}
+</ul>
 </body>
 </html>
